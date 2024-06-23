@@ -1,0 +1,68 @@
+---
+title: "HomeWork_1_22208626"
+author: "Jacques-Emmanuel"
+date: today
+date-format: long
+format: html
+theme: [default, custom.scss]
+execute: 
+  eval: true
+  echo: false
+editor: visual
+---
+
+# Presentation of the R airquality dataset
+
+## Descriptive statistics of the Wind and Temp variables
+
+```{r}
+#| label: Loading airquality dataset
+
+#Load dataset
+data('airquality')
+
+#Remove NA value from the data
+airquality_no_na <- na.omit(airquality)
+
+#summary of the temp and wind variables
+summary(airquality_no_na[c(3,4)])
+
+```
+
+The median and mean of the Wind variable are almost equal so the wind variable has a **symmetric** distribution. Whereas, the Temp variable distribution is **left skewed** because the median is greater than the mean. This could be explained by the fact that we observe few high temperature during month 8 and month 9.
+
+## Plot of the Wind varibale against the Temp variable
+
+We are interested in the degree of correlation between the Wind and the temp variables.
+
+```{r}
+#| label: packages
+#| echo: false
+#| message: false
+
+#loding ggplot2 and plotly libraries
+library(ggplot2)
+library(plotly)
+```
+
+
+```{r}
+#| label: ggplot
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+#Plot scatter plot of the Temp variable vs the Wind variable
+
+p <- ggplot(airquality_no_na, aes(x = Temp, y = Wind, col = Month)) + 
+  geom_point()
+ggplotly(p)
+
+```
+
+
+Below are the observations on the plot:
+
+- We observe a **strong negative** relationship between the the wind and the Temp variables. The Wind variable is decreasing as the Temp variable is increasing.
+
+- The lowest temperature are observed during **month 5**. Whereas the highest temperature are observed during **month 8**.
