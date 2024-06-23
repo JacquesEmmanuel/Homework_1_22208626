@@ -73,3 +73,8 @@ Below are the observations on the plot:
 boxplot(Temp ~ Month, data=airquality_no_na)
 
 ```
+
+
+**Observation:**
+We observe less variability in the temperature variable during the month of July.
+Whereas in August, we observe higher variability in the temp variable with the highest temperature
