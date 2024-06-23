@@ -31,7 +31,7 @@ summary(airquality_no_na[c(3,4)])
 
 The median and mean of the Wind variable are almost equal so the wind variable has a **symmetric** distribution. Whereas, the Temp variable distribution is **left skewed** because the median is greater than the mean. This could be explained by the fact that we observe few high temperature during month 8 and month 9.
 
-## Plot of the Wind varibale against the Temp variable
+## Plot of the Wind variable against the Temp variable
 
 We are interested in the degree of correlation between the Wind and the temp variables.
 
@@ -44,7 +44,6 @@ We are interested in the degree of correlation between the Wind and the temp var
 library(ggplot2)
 library(plotly)
 ```
-
 
 ```{r}
 #| label: ggplot
@@ -60,9 +59,17 @@ ggplotly(p)
 
 ```
 
-
 Below are the observations on the plot:
 
-- We observe a **strong negative** relationship between the the wind and the Temp variables. The Wind variable is decreasing as the Temp variable is increasing.
+-   We observe a **strong negative** relationship between the the wind and the Temp variables. The Wind variable is decreasing as the Temp variable is increasing.
 
-- The lowest temperature are observed during **month 5**. Whereas the highest temperature are observed during **month 8**.
+-   The lowest temperature are observed during **month 5**. Whereas the highest temperature are observed during **month 8**.
+
+## Plot a Boxplot of the Temp versus month variable
+
+```{r}
+#| label: boxplot
+
+boxplot(Temp ~ Month, data=airquality_no_na)
+
+```
